@@ -1,0 +1,7 @@
+﻿## Interface: 30200
+## Title: |cFF37FDFCb|rOpenBags
+## Author: @project-author@
+## Version: @project-version@
+## Notes: Open all your bags!
+
+bOpenBags.lua

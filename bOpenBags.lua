@@ -16,10 +16,13 @@ function bOB:PLAYER_LOGIN()
 	self:RegisterEvent("TRADE_SKILL_SHOW")
 end
 function bOB:YesBlockTrades(block)
-	if block then
-		SetCVar("BlockTrades", 1)
-	else
-		SetCVar("BlockTrades", 0)
+	SetCVar("BlockTrades", block and 1 or 0)
+end
+
+function bOB:closeAllBags()
+	CloseBackpack()
+	for i=1, NUM_CONTAINER_FRAMES, 1 do
+		CloseBag(i)
 	end
 end
 
@@ -65,7 +68,7 @@ function bOB:TRADE_SKILL_SHOW()
 end
 
 function bOB:MERCHANT_CLOSED()
-	CloseAllBags()
+	self:closeAllBags()
 	self:YesBlockTrades(false)
 end
 bOB.AUCTION_HOUSE_CLOSED = bOB.MERCHANT_CLOSED

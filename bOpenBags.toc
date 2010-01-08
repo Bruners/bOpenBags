@@ -1,7 +1,7 @@
-﻿## Interface: 30200
+﻿## Interface: 30300
 ## Title: |cFF37FDFCb|rOpenBags
 ## Author: Bruners
-## Version: v1.2
+## Version: v1.3
 ## Notes: Open all your bags!
 
 bOpenBags.lua

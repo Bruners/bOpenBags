@@ -1,4 +1,7 @@
-﻿local bOB = CreateFrame"Frame"
+﻿local OpenAllBags = OpenAllBags
+local CloseBackPack = CloseBackPack
+local CloseBag = CloseBag
+local bOB = CreateFrame"Frame"
 bOB:RegisterEvent("PLAYER_LOGIN")
 bOB:SetScript("OnEvent", function(self, event, ...) 
 	if self[event] then 
@@ -15,10 +18,12 @@ function bOB:PLAYER_LOGIN()
 	self:RegisterEvent("TRADE_SHOW")
 	self:RegisterEvent("TRADE_SKILL_SHOW")
 end
+
 function bOB:YesBlockTrades(block)
 	SetCVar("BlockTrades", block and 1 or 0)
 end
 
+--[[ FrameXML/ContainerFrame.lua ]]--
 function bOB:closeAllBags()
 	CloseBackpack()
 	for i=1, NUM_CONTAINER_FRAMES, 1 do
@@ -71,10 +76,10 @@ function bOB:MERCHANT_CLOSED()
 	self:closeAllBags()
 	self:YesBlockTrades(false)
 end
+
 bOB.AUCTION_HOUSE_CLOSED = bOB.MERCHANT_CLOSED
 bOB.BANKFRAME_CLOSED = bOB.MERCHANT_CLOSED
 bOB.GUILDBANKFRAME_CLOSED = bOB.MERCHANT_CLOSED
 bOB.MAIL_CLOSED = bOB.MERCHANT_CLOSED
 bOB.TRADE_CLOSED = bOB.MERCHANT_CLOSED
 bOB.TRADE_SKILL_CLOSE = bOB.MERCHANT_CLOSED
-
